@@ -4,11 +4,13 @@
 
 ## Step two. Change the SQL connection query
 
+## Step three, create Table by
+```
+python createTable.py
+```
+
 ## then run
 ```python
-
-python .py
-
-
+python scrap.py 
 
 ```
