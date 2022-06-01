@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 import re
 import pandas as pd
 from sqlQuery import cur
+from sqlQuery import conn
+
 
 url = "https://www.hkexnews.hk/sdw/search/mutualmarket_c.aspx?t=sh"
 
@@ -63,9 +65,8 @@ while start_date <= end_date:
             share = table[2]
             percent = table[3]
             cur.execute('INSERT INTO shc (date, stock_code, stock_name, shareholding_CCASS, shares_percentage) VALUES (%s, %s, %s, %s, %s)', (date,code,name,share, percent))
-
-        
-    # print(all_tables)
     start_date += delta
+    
+conn.commit()
     
 
